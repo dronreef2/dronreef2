@@ -1,5 +1,5 @@
 ## Ola 👋
-[![GitHub Streak](https://github-readme-streak-stats-34u4o7c4m-dronreef2s-projects.vercel.app?user=dronreef2&theme=blood&hide_border=true&border_radius=4&locale=pt_BR&short_numbers=true&date_format=j%2Fn%5B%2FY%5D&card_width=470&card_height=190)](https://git.io/streak-stats)
+https://github-readme-streak-stats-34u4o7c4m-dronreef2s-projects.vercel.app
 <!--
 **dronreef2/dronreef2** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
