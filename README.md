@@ -12,12 +12,11 @@
 
 ## 👨‍💻 About Me
 
-<!-- REPLACE THE BULLETS BELOW WITH YOUR INFORMATION -->
-- 🔭 Currently working on **[Your current project or role]**
-- 🌱 Learning **[Technologies you're currently learning]**
-- 👯 Looking to collaborate on **[Types of projects you're interested in]**
-- 💬 Ask me about **[Your areas of expertise]**
-- 📫 How to reach me: **[Preferred contact method]**
+- 🔭 Currently working on **Advanced GNSS Gateway Systems & Geospatial Engineering**
+- 🌱 Learning **Apache SIS, Geospatial Data Processing, Resilience Patterns**
+- 👯 Looking to collaborate on **Microservices Architecture, Cloud-Native Applications, GIS Systems**
+- 💬 Ask me about **Spring Boot, Docker/Kubernetes, GNSS/GPS Systems, Coordinate Transformations**
+- 📫 How to reach me: **[Your preferred contact method]**
 
 ---
 
@@ -25,8 +24,7 @@
 
 <div align="center">
 
-<!-- Adjust the technologies below to match your actual skill set -->
-![Skills](https://skillicons.dev/icons?i=python,js,ts,react,nodejs,docker,kubernetes,aws,git,vscode&perline=5)
+![Skills](https://skillicons.dev/icons?i=java,spring,docker,kubernetes,redis,postgres,prometheus,grafana,git,maven&perline=5)
 
 </div>
 
@@ -34,15 +32,97 @@
 
 ## 🌟 Featured Projects
 
-<!-- REPLACE WITH YOUR ACTUAL PROJECTS -->
-### 🚀 [Project Name 1](#)
-> Brief description of what this project does and the technologies used.
+### 🛰️ [GeoSat Gateway - Advanced GNSS Data Processing System](https://github.com/dronreef2/SistemasGNSS)
 
-### 🎯 [Project Name 2](#)
-> Brief description of what this project does and the technologies used.
+[![Deploy Status](https://img.shields.io/badge/deploy-success-brightgreen)](https://sistemasgnss.sliplane.app) [![Production](https://img.shields.io/badge/production-online-blue)](https://sistemasgnss.sliplane.app) [![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/dronreef2/SistemasGNSS) [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-green)](https://github.com/dronreef2/SistemasGNSS)
 
-### 💡 [Project Name 3](#)
-> Brief description of what this project does and the technologies used.
+> **Production URL:** [sistemasgnss.sliplane.app](https://sistemasgnss.sliplane.app) | [API Docs](https://sistemasgnss.sliplane.app/swagger-ui/index.html)
+
+Gateway unificado para dados GNSS da RBMC (IBGE): relatórios técnicos, arquivos RINEX2/3 e órbitas – com resiliência, métricas e base para visualizações geoespaciais.
+
+#### 🎯 Pontos Mais Interessantes (Technically Challenging Features)
+
+1. **🌐 Geospatial Engineering com Apache SIS 1.4**
+   - Transformações geodésicas avançadas: WGS84 ↔ UTM com detecção automática de zona
+   - Processamento de coordenadas GNSS com precisão sub-métrica
+   - Integração ISO 19115 para metadata geoespacial
+   - Conversões de unidades JSR-385 compliant (meters, degrees, radians)
+   - **52 testes unitários** com 100% de cobertura nos módulos SIS
+
+2. **🛡️ Resiliência e Alta Disponibilidade**
+   - **Circuit Breaker Pattern** com Resilience4j (proteção contra falhas em cascata)
+   - **Retry com Exponential Backoff** para recuperação automática
+   - **Fallback inteligente** com cache Redis (TTL 6h/12h)
+   - Sistema funciona com ou sem Redis (`@ConditionalOnProperty`)
+   - Responde com HTTP 503 estruturado durante degradação
+
+3. **📊 Observabilidade Completa (Production-Ready)**
+   - Métricas Prometheus customizadas: `rbmc.requests.total`, `rbmc.circuitbreaker.state`
+   - Health probes (liveness/readiness) para Kubernetes
+   - Dashboards Grafana pré-configurados
+   - Logs estruturados por perfil (dev/docker/prod)
+   - Tracing distribuído preparado para OpenTelemetry
+
+4. **🚀 DevOps & Cloud-Native**
+   - Docker multi-stage build otimizado (~180MB final)
+   - Deploy em produção com Sliplane PaaS (24/7 uptime)
+   - CI/CD completo com GitHub Actions
+   - JVM otimizado para containers (G1GC, MaxRAMPercentage)
+   - Startup time: ~15 segundos
+
+5. **🔬 Processamento de Dados GNSS/RINEX**
+   - Parser de arquivos RINEX2/RINEX3 (1s e 15s epochs)
+   - Integração com API IBGE para órbitas multiconstelação
+   - Séries temporais SNR e posições com decimação adaptativa
+   - Validação e conversão de observações GNSS
+
+#### 💻 Habilidades Técnicas Mais Difíceis Demonstradas
+
+**1. Engenharia Geoespacial Avançada**
+- Implementação de transformações geodésicas complexas usando Apache SIS
+- Manipulação de sistemas de coordenadas (EPSG, WGS84, UTM)
+- Cálculos de precisão numérica para aplicações GNSS profissionais
+
+**2. Arquitetura de Software Resiliente**
+- Implementação de patterns de resiliência (Circuit Breaker, Retry, Bulkhead)
+- Gerenciamento de estado distribuído com cache
+- Tratamento de falhas em cascata e degradação graceful
+
+**3. Performance & Otimização**
+- Docker multi-stage builds com otimização de layers
+- JVM tuning para ambientes containerizados
+- Decimação de séries temporais com algoritmos adaptativos
+
+**4. Integração com APIs Externas**
+- Cliente HTTP/2 com Apache HttpComponents 5
+- Streaming de dados binários (RINEX files)
+- Rate limiting e throttling inteligente
+
+**5. Observabilidade em Produção**
+- Design de métricas customizadas para negócio
+- Instrumentação de código com Micrometer
+- Correlação de logs e traces distribuídos
+
+#### 🛠️ Stack Tecnológica
+
+- **Backend:** Java 17, Spring Boot 3.2.5, Apache SIS 1.4
+- **Resiliência:** Resilience4j (Circuit Breaker, Retry, Rate Limiter)
+- **HTTP Client:** Apache HttpComponents 5 (HTTP/2 ready)
+- **Cache:** Redis 7 com Testcontainers para testes
+- **Observabilidade:** Micrometer, Prometheus, Grafana
+- **Geospatial:** Apache SIS 1.4 (coordinate transforms, metadata, units)
+- **Docs:** SpringDoc OpenAPI 3.0
+- **Testes:** JUnit 5, Mockito, Testcontainers
+- **DevOps:** Docker, GitHub Actions, Sliplane PaaS
+
+#### 🏆 Desafios Técnicos Resolvidos
+
+1. **Maven Build Configuration** - JAR executável com spring-boot-maven-plugin
+2. **Docker ENTRYPOINT Optimization** - Variáveis de ambiente + JVM flags
+3. **Optional Redis Dependency** - Graceful degradation sem Redis
+4. **Health Check Configuration** - Deploy bem-sucedido com probes K8s
+
+📖 **Documentação Técnica Completa:** [DEPLOY.md](https://github.com/dronreef2/SistemasGNSS/blob/main/DEPLOY.md) | [SIS_INTEGRATION.md](https://github.com/dronreef2/SistemasGNSS/blob/main/docs/SIS_INTEGRATION.md)
 
 ---
 
