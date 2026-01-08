@@ -1,0 +1,35 @@
+name: Spotify Status
+
+on:
+  schedule:
+    # Runs every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-spotify:
+    name: Update Spotify Status
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Update Spotify Status
+        uses: kittinan/spotify-github-profile@v2
+        with:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+
+# NOTE: To use this workflow:
+# 1. Create a Spotify App at https://developer.spotify.com/dashboard/applications
+# 2. Get your Client ID and Client Secret
+# 3. Get your Refresh Token using the authorization flow
+#    (See: https://github.com/kittinan/spotify-github-profile for instructions)
+# 4. Add the following as repository secrets:
+#    - SPOTIFY_CLIENT_ID
+#    - SPOTIFY_CLIENT_SECRET
+#    - SPOTIFY_REFRESH_TOKEN
+# 5. The workflow will generate a Spotify status image that can be embedded in README

@@ -1,0 +1,37 @@
+name: Latest Blog Posts
+
+on:
+  schedule:
+    # Runs every day at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-readme-with-blog:
+    name: Update this repo's README with latest blog posts
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Pull in blog posts
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          # Replace with your blog RSS feed URL or set as repository variable
+          # To enable this workflow, add BLOG_RSS as a repository variable or secret
+          # For now, this workflow will only run if BLOG_RSS is configured
+          feed_list: ${{ vars.BLOG_RSS || secrets.BLOG_RSS }}
+          max_post_count: 5
+          template: "- [$title]($url)"
+          commit_message: "Updated with latest blog posts"
+          committer_username: "blog-post-bot"
+          committer_email: "blog-post-bot@example.com"
+
+# NOTE: To use this workflow:
+# 1. Add your blog RSS feed URL as a repository variable named BLOG_RSS
+# 2. Ensure the README.md contains the following comment markers:
+#    <!-- BLOG-POST-LIST:START -->
+#    <!-- BLOG-POST-LIST:END -->
+# 3. The workflow will automatically update the content between these markers

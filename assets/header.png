@@ -1,0 +1,30 @@
+===========================================
+PLACEHOLDER: Custom Header Banner
+===========================================
+
+This is a TEXT placeholder file.
+
+INSTRUCTIONS:
+-------------
+Replace this file with an actual PNG image file 
+to display a custom banner at the top of your 
+GitHub profile README.
+
+RECOMMENDED SPECIFICATIONS:
+---------------------------
+- Format: PNG (header.png)
+- Dimensions: 1280x320 pixels (or similar wide banner)
+- Content: Your name, title, or custom design
+- Keep file size reasonable (<500KB recommended)
+
+ALTERNATIVE:
+------------
+If you don't want a custom header image, you can
+simply remove or ignore this file. The README uses
+capsule-render for the animated header banner, so
+this file is optional.
+
+The capsule-render header will display regardless
+of whether you replace this placeholder or not.
+
+===========================================
