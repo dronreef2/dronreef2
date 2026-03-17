@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Update Spotify Status
-        uses: kittinan/spotify-github-profile@v2
+        uses: kittinan/spotify-github-profile@v1
         with:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
