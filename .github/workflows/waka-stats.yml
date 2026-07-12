@@ -9,15 +9,25 @@ on:
 jobs:
   update-readme:
     name: Update README with WakaTime Stats
-    if: ${{ secrets.WAKATIME_API_KEY != '' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Check WakaTime API key
+        id: wakatime-key-check
+        run: |
+          if [ -z "${{ secrets.WAKATIME_API_KEY }}" ]; then
+            echo "is_configured=false" >> "$GITHUB_OUTPUT"
+            echo "WAKATIME_API_KEY is not configured. Skipping stats update."
+          else
+            echo "is_configured=true" >> "$GITHUB_OUTPUT"
+          fi
       
       - name: Update WakaTime Stats
+        if: steps.wakatime-key-check.outputs.is_configured == 'true'
         uses: anmol098/waka-readme-stats@v5
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
