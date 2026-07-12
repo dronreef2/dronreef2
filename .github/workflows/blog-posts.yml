@@ -10,19 +10,22 @@ jobs:
   update-readme-with-blog:
     name: Update this repo's README with latest blog posts
     runs-on: ubuntu-latest
+    env:
+      BLOG_RSS: ${{ vars.BLOG_RSS || secrets.BLOG_RSS || '' }}
     permissions:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Pull in blog posts
+        if: ${{ env.BLOG_RSS != '' }}
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
           # Replace with your blog RSS feed URL or set as repository variable
           # To enable this workflow, add BLOG_RSS as a repository variable or secret
           # For now, this workflow will only run if BLOG_RSS is configured
-          feed_list: ${{ vars.BLOG_RSS || secrets.BLOG_RSS }}
+          feed_list: ${{ env.BLOG_RSS }}
           max_post_count: 5
           template: "- [$title]($url)"
           commit_message: "Updated with latest blog posts"
