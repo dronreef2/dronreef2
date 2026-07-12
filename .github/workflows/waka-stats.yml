@@ -9,6 +9,7 @@ on:
 jobs:
   update-readme:
     name: Update README with WakaTime Stats
+    if: ${{ secrets.WAKATIME_API_KEY != '' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
