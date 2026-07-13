@@ -16,7 +16,7 @@
 - 🌱 Learning **Apache SIS, Geospatial Data Processing, Resilience Patterns**
 - 👯 Looking to collaborate on **Microservices Architecture, Cloud-Native Applications, GIS Systems**
 - 💬 Ask me about **Spring Boot, Docker/Kubernetes, GNSS/GPS Systems, Coordinate Transformations**
-- 📫 How to reach me: **[Your preferred contact method]**
+- 📫 How to reach me: **[dronreef@gmail.com**
 
 ---
 
